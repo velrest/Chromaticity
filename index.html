@@ -8,8 +8,8 @@
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
-	<script src="js/jquery-2.1.4.js"></script> <!-- Modernizr -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="js/jquery-2.1.4.js"></script> <!-- Modernizr -->
   	
 	<title>Animated Page Transition #2 | CodyHouse</title>
 </head>
@@ -62,8 +62,13 @@
 	</main> <!-- .cd-main -->
 
 	<div id="cd-loading-bar" data-scale="1" class="index"></div> <!-- lateral loading bar -->
+<script>
+  // You can also require other files to run in this process
+  require('./js/renderer.js')
+</script>
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/velocity.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
+
 </body>
 </html>
