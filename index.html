@@ -8,12 +8,13 @@
 
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
-	<script src="js/jquery-2.1.4.js"></script> <!-- Modernizr -->
-  	
+	<script src="js/jquery-2.1.4.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<title>Animated Page Transition #2 | CodyHouse</title>
 </head>
-<body>
+<body style="overflow:hidden;">
 	<nav class="cd-side-navigation">
 		<ul>
 			<li>
@@ -49,14 +50,39 @@
 	
 	<main class="cd-main" style="background:#83b0b9;color:white;">
 		<section class="cd-section index visible">
-
-
 			<div class="cd-content" id="index-content" style="background:#83b0b9;color:white;">
-					
+				<div class="row light_container" style="padding:0px;margin:0px;">
+				  <div class="col-md-3 col-lg-2">
+				  	<img src="img/products/aura.svg" class="light_icon right" />
+				  </div>
+				  <div class="col-md-6 col-lg-8">
+					<input type="range" style="width:100%;"/>
+				  </div>
+				  <div class="col-md-3 col-lg-2">
+				    <div class="onoffswitch">
+	  			        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+				        <label class="onoffswitch-label" for="myonoffswitch"></label>
+				    </div>
+				  </div>
+
+				</div>		
+				<div class="light_container">
+				  <div class="col-md-3 col-lg-2">
+				  	<img src="img/products/aura.svg" class="light_icon right" />
+				  </div>
+				  <div class="col-md-6 col-lg-8">
+				  </div>
+				  <div class="col-md-3 col-lg-2">
+				  </div>
+				</div>		
+				<div class="light_container">
+				</div>		
+				<div class="light_container">
+				</div>		
+				<div class="light_container">
+				</div>		
 				
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae illo veritatis ea deserunt aliquam blanditiis, voluptas optio, voluptate ut accusamus veniam numquam, porro! Cum minima a molestiae, similique voluptate, perferendis vel iusto quam suscipit delectus dolore ducimus possimus illo molestias voluptas labore optio consequuntur sapiente pariatur libero nam temporibus. Laudantium!
-				</p>
+
 			</div> <!-- .cd-content -->
 		</section> <!-- .cd-section -->
 	</main> <!-- .cd-main -->
@@ -64,7 +90,7 @@
 	<div id="cd-loading-bar" data-scale="1" class="index"></div> <!-- lateral loading bar -->
 <script>
   // You can also require other files to run in this process
-  require('./js/renderer.js')
+  require('./js/renderer.js');
 </script>
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/velocity.min.js"></script>
