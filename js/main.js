@@ -109,6 +109,9 @@ jQuery(document).ready(function($){
 			});
 
 		}, 50);
+		$.getScript("js/range.js", function(){
+				   console.log("Script loaded and executed.");
+		});
 	}
 
 	function loadingBarAnimation() {
