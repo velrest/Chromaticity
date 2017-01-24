@@ -79,9 +79,10 @@ jQuery(document).ready(function($){
 			loadingBarAnimation();
 			
 			//create a new section element and insert it into the DOM
-			var section = $('<section class="cd-section overflow-hidden '+newSection+'"></section>').appendTo(mainContent);
+			//var section = $('<section class="cd-section overflow-hidden '+newSection+'"></section>').appendTo(mainContent);
+			var section = $('.'+newSection);
 			//load the new content from the proper html file
-			section.load(newSection+'.html .cd-section > *', function(event){
+			//section.load(newSection+'.html .cd-section > *', function(event){
 				//finish up the animation and then make the new section visible
 				var scaleMax = loadingBar.data('scale');
 				
@@ -89,7 +90,10 @@ jQuery(document).ready(function($){
 					scaleY: scaleMax
 				}, 400, function(){
 					//add the .visible class to the new section element -> it will cover the old one
-					section.prev('.visible').removeClass('visible').end().addClass('visible').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+					$('.visible').removeClass('visible');
+						
+					//section.prev('.visible').removeClass('visible').end().addClass('visible').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+					section.addClass('visible').on('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 						resetAfterAnimation(section);
 					});
 
@@ -100,18 +104,15 @@ jQuery(document).ready(function($){
 
 					var url = newSection+'.html';
 
-					if(url!=window.location && bool){
-				        //add the new page to the window.history
-				        //if the new page was triggered by a 'popstate' event, don't add it
-				        window.history.pushState({path: url},'',url);
-				    }
+					//if(url!=window.location && bool){
+				    //    //add the new page to the window.history
+				    //    //if the new page was triggered by a 'popstate' event, don't add it
+				    //    window.history.pushState({path: url},'',url);
+				    //}
 				});
-			});
+			//});
 
 		}, 50);
-		$.getScript("js/range.js", function(){
-				   console.log("Script loaded and executed.");
-		});
 	}
 
 	function loadingBarAnimation() {
@@ -129,7 +130,7 @@ jQuery(document).ready(function($){
 
 	function resetAfterAnimation(newSection) {
 		//once the new section animation is over, remove the old section and make the new one scrollable
-		newSection.removeClass('overflow-hidden').prev('.cd-section').remove();
+		//newSection.removeClass('overflow-hidden').prev('.cd-section').remove();
 		isAnimating =  false;
 		//reset your loading bar
 		resetLoadingBar();

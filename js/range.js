@@ -180,7 +180,10 @@ function change_slider_color() {
 
 
 $('.rkmd-slider').rkmd_rangeSlider();
-change_slider_color();
-console.log("range.js ran");
+//window.setInterval(function(){
+//$('.rkmd-slider').rkmd_rangeSlider();
+//change_slider_color();
+//console.log("range.js ran");
+//}, 5000);
 //});
 
