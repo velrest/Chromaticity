@@ -6,6 +6,9 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+const constModule = require('./renderer');
+
+let store = constModule.store();
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,15 +18,24 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600, icon: __dirname + '/icon.png'})
 
+  //var Storage = require('node-storage');
+  //var store = new Storage('db.json');
+  var issetup = store.get("bridge_ip")
+  if (issetup){
+    var initpage = "templates/index.html"
+  } else {
+    var initpage = "templates/setup.html"
+  }
+  
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, initpage),
     protocol: 'file:',
     slashes: true
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
