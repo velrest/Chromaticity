@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
+    <style>
+      body {
+        background: #2da3e2;
+        color:white;
+        font-family: 'Quicksand', sans-serif;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 20%;
+        font-size: 400%;
+      }
+      #bridge_scan {
+        display: block;
+        margin: auto auto;
+        margin-top: 20px;
+        font-size: x-large;
+        border-radius: 2px;
+        background:white;
+        padding:15px;
+        box-shadow: none;
+        border: none;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+      }
+      #bridge_scan:hover {
+        border-bottom: 3px white solid;
+        background: none;
+        color:white;
+        border-radius: 0px;
+      }
+    </style>
+  </head>
   <body>
-    <h1> Hello World! </h1>
+    <h1> Chromaticity </h1>
+    <button id="bridge_scan">Scan for hue bridge</button>
   </body>
+  <script>
+    require('../huecontroller');
+  </script>
 </html>

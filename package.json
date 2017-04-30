@@ -20,6 +20,8 @@
     "electron": "^1.4.1"
   },
   "dependencies": {
+    "express": "^4.15.2",
+    "node-hue-api": "^2.4.2",
     "node-storage": "0.0.7"
   }
 }
