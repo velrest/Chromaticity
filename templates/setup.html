@@ -2,6 +2,13 @@
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
+
+    <!-- This wrapper enables jquery to work in electron. see http://stackoverflow.com/questions/32621988/electron-jquery  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="../js/jquery-2.1.4.js"></script>
+    <script src="../js/setuppage.js"></script> 
+    <script>if (window.module) module = window.module;</script>
+
     <style>
       body {
         background: #2da3e2;
@@ -13,7 +20,8 @@
         margin-top: 20%;
         font-size: 400%;
       }
-      #bridge_scan {
+      
+      .button {
         display: block;
         margin: auto auto;
         margin-top: 20px;
@@ -29,19 +37,37 @@
         -ms-transition: all 0.2s ease-out;
         transition: all 0.2s ease-out;
       }
-      #bridge_scan:hover {
+      .button:hover {
         border-bottom: 3px white solid;
         background: none;
         color:white;
         border-radius: 0px;
       }
+      .hidden {
+        visibility: hidden;
+      }
+      #message {
+        text-align: center;
+      }
+      #continue {
+        position: absolute;
+        right: 20px;
+        bottom: 20px; 
+      }
+
     </style>
   </head>
   <body>
     <h1> Chromaticity </h1>
-    <button id="bridge_scan">Scan for hue bridge</button>
+    <h3 id="message"></h3>
+    <button id="bridge_scan" class="button">Scan for hue bridge</button>
+
+    <div id="manual_bridge_ip" class="hidden">
+      <label>Manually provide bridge IP</label>
+      <input id="bridge_ip_value" type="text"></input>
+    </div>
+    <button id="continue" class="button hidden">Continue</button>
   </body>
-  <script>
-    require('../huecontroller');
-  </script>
+    <script>
+    </script>
 </html>

@@ -3,8 +3,8 @@ var hueController = require('../controllers/hue')
 
 module.exports = function() {
   var router = express.Router();
-
-  router.get('/getbride', hueController.getBridge);
+  console.log("routes reached");
+  router.post('/getbridge', hueController.getBridge);
 
   return router;
 };
