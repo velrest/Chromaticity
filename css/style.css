@@ -1,51 +1,51 @@
 /* custom css */
 
 .colorpicker {
-	/*border: 6px solid grey;*/
-	border:none;
-	padding: 25px 40px;
-	border-radius:14px;
-	float:left;
+    /*border: 6px solid grey;*/
+    border:none;
+    padding: 25px 40px;
+    border-radius:14px;
+    float:left;
     transform: translateY(30%);
 }
 
 .light_container {
     height: 85px;
     margin: 0px;
-	padding: 0px;
+    padding: 0px;
 }
 .light_icon {
     height: 30px;
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	user-select: none;
-	z-index: -1;
-	position:relative;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: -1;
+    position:relative;
 }
 
 .light_bubble {
-	padding: 22px 20px;
-	height: 80px;
-	width: 80px;
-	border-radius: 100%;
-	background:black;
-	border: 6px solid grey;
-	position:relative;
-	z-index:-1;
+    padding: 22px 20px;
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    background:black;
+    border: 6px solid grey;
+    position:relative;
+    z-index:-1;
 }
 
 .bubble_wrapper {
-	background:none;
-	border:none;
-	position:relative;
-	z-index:100;
+    background:none;
+    border:none;
+    position:relative;
+    z-index:100;
 }
 
 .right {
-	float: right;
+    float: right;
 }
 /* switch css */
 

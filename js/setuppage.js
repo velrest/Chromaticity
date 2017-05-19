@@ -31,14 +31,21 @@ var handleBridges = function(bridges) {
   }
   else {
     $("#message").text("Ok, I found a bridge on your network with the IP " + bridges[0]["ipaddress"]);
-    $("#bridge_register").css("visibility", "visible");
-    $("#bridge_scan").css("visibility", "hidden");
+    $("#pushlink").css("display", "block");
+    $("#bridge_scan").css("display", "none");
+    $("#bridge_timeout").css("display", "block");
+    startBridgeTimeout()
   }
 };
 
 
+var startBridgeTimeout = function() {
+  $("#bridge_slider").animate({width:"100%"}, 15000, function() {console.log("animation done");});
+};
+
 // Create lListeners
 $( document ).ready(function() {
+
   $("#bridge_scan").click(function() {
     console.log("The scan bridge button was clicked");
     hue.upnpSearch(timeout).then(handleBridges).done();
@@ -53,10 +60,9 @@ $( document ).ready(function() {
           $("#message").text("Oh no, I couldn't connect to the bridge. The link button wasn't pressed.");
         } else {
           displayUserResult(user);
-          $("#bridge_register").css("visibility", "hidden");
+          $("#bridge_register").css("display", "none");
           $("#message").text("Hooray, I was able to successfully connect to the bridge");
         };
     });
-    
   });
 });

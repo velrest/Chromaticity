@@ -17,7 +17,7 @@
       }
       h1 {
         text-align: center;
-        margin-top: 20%;
+        margin-top: 10%;
         font-size: 400%;
       }
       
@@ -44,7 +44,7 @@
         border-radius: 0px;
       }
       .hidden {
-        visibility: hidden;
+        display: none;
       }
       #message {
         text-align: center;
@@ -54,15 +54,37 @@
         right: 20px;
         bottom: 20px; 
       }
+      #pushlink {
+        width:200px;
+        height:200px;
+        margin-right:auto;
+        margin-left:auto;
+        margin-top: 30px;
+      }
+      #bridge_timeout {
+        width: 70%;
+        max-width: 500px;
+        height:5px;
+        background: #1a5c7f;
+        margin: 30px auto 30px auto;
+        border-radius: 3px;
+      }
 
+      #bridge_slider {
+        background-color: white;
+        height: inherit;
+        width: 0%;
+        border-radius: inherit;
+      }
     </style>
   </head>
   <body>
     <h1> Chromaticity </h1>
     <h3 id="message"></h3>
     <button id="bridge_scan" class="button">Scan for hue bridge</button>
-    <button id="bridge_register" class="button hidden">Register Bridge</button>
-
+    <img id="pushlink" class="hidden" src="../img/pushlink/SVG/pushlink_bridgev2.svg" />
+    
+    <div id="bridge_timeout" class="hidden"><div id="bridge_slider"></div></div>
     <div id="manual_bridge_ip" class="hidden">
       <label>Manually provide bridge IP</label>
       <input id="bridge_ip_value" type="text"></input>
