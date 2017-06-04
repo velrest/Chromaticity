@@ -57,10 +57,6 @@ var registerBridge = function() {
         return true;
       };
       });
-  //HueApi.registerUser(BRIDGE["ipaddress"], BRIDGE_DESCRIPTION)
-  //      .then(displayUserResult)
-  //      .fail(displayError)
-  //      .done();
 };
 
 var startBridgeTimeout = function() {
