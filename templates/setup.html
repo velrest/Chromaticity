@@ -10,6 +10,16 @@
     <script>if (window.module) module = window.module;</script>
 
     <style>
+      :not(input):not(textarea),
+      :not(input):not(textarea)::after,
+      :not(input):not(textarea)::before {
+            -webkit-user-select: none;
+                  user-select: none;
+                        cursor: default;
+      }
+      input, button, textarea, :focus {
+            outline: none; // You should add some other style for :focus to help UX/a11y
+      }
       body {
         background: #2da3e2;
         color:white;
@@ -25,12 +35,13 @@
         display: block;
         margin: auto auto;
         margin-top: 20px;
-        font-size: x-large;
+        font-size: large;
         border-radius: 2px;
-        background:white;
-        padding:15px;
-        box-shadow: none;
-        border: none;
+        /*background:white;*/
+        color: #212121;
+        background: white;
+        padding:15px 30px;
+        border: 1px solid white;
         -webkit-transition: all 0.2s ease-out;
         -moz-transition: all 0.2s ease-out;
         -o-transition: all 0.2s ease-out;
@@ -38,13 +49,17 @@
         transition: all 0.2s ease-out;
       }
       .button:hover {
-        border-bottom: 3px white solid;
         background: none;
         color:white;
-        border-radius: 0px;
       }
       .hidden {
         display: none;
+      }
+      .text-input {
+        border: none;
+        color: #212121;
+        padding: 10px;
+        border-radius: 4px;
       }
       #message {
         text-align: center;
@@ -76,6 +91,17 @@
         width: 0%;
         border-radius: inherit;
       }
+      .top50 {
+        margin-top: 50px;
+      }
+      .center {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+      .text-center {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -85,9 +111,9 @@
     <img id="pushlink" class="hidden" src="../img/pushlink/SVG/pushlink_bridgev2.svg" />
     
     <div id="bridge_timeout" class="hidden"><div id="bridge_slider"></div></div>
-    <div id="manual_bridge_ip" class="hidden">
-      <label>Manually provide bridge IP</label>
-      <input id="bridge_ip_value" type="text"></input>
+    <div id="manual_bridge_ip" class="hidden top50">
+      <h3 class="text-center">Manually provide bridge IP</h3><br />
+      <input class="text-input center" id="bridge_ip_value" type="text"></input>
     </div>
   </body>
     <script>
