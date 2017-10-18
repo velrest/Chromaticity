@@ -1,3 +1,7 @@
+<p align="center"> 
+<img src="img/screenshots/product_screenshot.png">
+</p>
+
 # Chromaticity
 Desktop application to control Philips hue lights.
 Linux, Mac and Windows will be supported.
