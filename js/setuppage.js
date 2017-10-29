@@ -1,6 +1,9 @@
 var hue = require("node-hue-api"),
     timeout = 2000; // 2 seconds
 
+const constModule = require('../renderer');
+let store = constModule.store();
+
 var HueApi = new hue.HueApi();
 var BRIDGE = null;
 var BRIDGE_DESCRIPTION = "Chromaticity client"
@@ -22,9 +25,22 @@ var displayError = function(err) {
       console.log(err);
 };
 
+
+var insertUser = function(user) {
+  var issetup = store.get("bridge_ip")
+  if (!issetup){
+    debugger;
+    store.put("bridge_ip", BRIDGE["ipaddress"])
+    store.put("username", user)
+    var initpage = "../templates/index.html"
+    window.location.href = initpage
+  }
+};
+
+
 var registerUser = function(host, userDescription) {
   HueApi.registerUser(host, userDescription)
-      .then(displayUserResult)
+      .then(insertUser(host))
       .fail(displayError)
       .done();
 };
@@ -54,9 +70,10 @@ var registerBridge = function() {
         console.log(err)
       } else {
         displayUserResult(user);
+        insertUser(user)
         return true;
       };
-      });
+   });
 };
 
 var startBridgeTimeout = function() {
@@ -76,19 +93,5 @@ $( document ).ready(function() {
     console.log("The scan bridge button was clicked");
     hue.upnpSearch(timeout).then(handleBridges).done();
     $("#message").text("Searching for bridges on your network...");
-  });
-  
-  $("#bridge_register").click(function() {
-    console.log("Attempting to register hue user to the hue bridge.");
-    //registerUser(BRIDGE["ipaddress"], "Chromaticity"); 
-    HueApi.createUser(BRIDGE["ipaddress"], function(err, user) {
-        if (err) {
-          $("#message").text("Oh no, I couldn't connect to the bridge. The link button wasn't pressed.");
-        } else {
-          displayUserResult(user);
-          $("#bridge_register").css("display", "none");
-          $("#message").text("Hooray, I was able to successfully connect to the bridge");
-        };
-    });
   });
 });
