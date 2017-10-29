@@ -161,6 +161,8 @@ Navigation
     pointer-events: none;
 }
 .no-touch .cd-side-navigation a:hover {
+    color: #4a5261;
+    text-decoration: none;
     background-color: #08090b;
 }
 .no-touch .cd-side-navigation a:hover::after {
@@ -168,6 +170,7 @@ Navigation
 }
 .cd-side-navigation a.selected,
 .no-touch .cd-side-navigation a.selected:hover {
+    text-decoration: none;
     background-color: #ffffff;
     color: #131519;
 }
