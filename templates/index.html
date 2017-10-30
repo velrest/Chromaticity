@@ -11,10 +11,19 @@
   <link rel="stylesheet" href="../css/range.css">
   <link rel="stylesheet" href="../css/switch.css">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+  <script src="../js/main.js"></script>
+  <script> 
+    window.nodeRequire = require; 
+    delete window.require;
+    delete window.exports; delete window.module; 
+  </script> 
+
   <script src="../js/jquery-2.1.4.js"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/modernizr.js"></script> <!-- Modernizr -->
   <script src="../js/jscolor.min.js"></script>
-  <script src="../js/main.js"></script>
   <title>Chromaticity</title>
 </head>
 <body style="overflow:hidden;">
@@ -43,9 +52,8 @@
 
       <li>
         <a href="#0" data-menu="contact">
-          <svg class="nc-icon outline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24"><g transform="translate(0, 0)"> <polyline data-color="color-2" fill="none" stroke="#4a5261" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" points=" 19,7 12,14 5,7 " stroke-linejoin="miter"></polyline> <rect x="1" y="3" fill="none" stroke="#4a5261" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" width="22" height="18" stroke-linejoin="miter"></rect> <line data-color="color-2" fill="none" stroke="#4a5261" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="7" y1="15" x2="5" y2="17" stroke-linejoin="miter"></line> <line data-color="color-2" fill="none" stroke="#4a5261" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" x1="17" y1="15" x2="19" y2="17" stroke-linejoin="miter"></line> </g></svg>
-          </svg>
-          Manage Hue
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" xml:space="preserve" width="24" height="24"><g class="nc-icon-wrapper" fill="#444444"><path fill="none" stroke="#444444" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M12,12L12,12 c-2.761,0-5-2.239-5-5V6c0-2.761,2.239-5,5-5h0c2.761,0,5,2.239,5,5v1C17,9.761,14.761,12,12,12z" stroke-linejoin="miter"></path> <path data-color="color-2" fill="none" stroke="#444444" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M22,20.908 c0-1.8-1.197-3.383-2.934-3.856C17.172,16.535,14.586,16,12,16s-5.172,0.535-7.066,1.052C3.197,17.525,2,19.108,2,20.908V23h20 V20.908z" stroke-linejoin="miter"></path></g></svg>
+          Users 
         </a>
       </li>
     </ul>
@@ -113,9 +121,7 @@
     <section class="cd-section projects ">
 
       <div class="cd-content" id="projects-content">
-  <script src="../js/jquery-2.1.4.js"></script>
         <p>
-  <script src="../js/jquery-2.1.4.js"></script>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae illo veritatis ea deserunt aliquam blanditiis, voluptas optio, voluptate ut accusamus veniam numquam, porro! Cum minima a molestiae, similique voluptate, perferendis vel iusto quam suscipit delectus dolore ducimus possimus illo molestias voluptas labore optio consequuntur sapiente pariatur libero nam temporibus. Laudantium!
         </p>
 
@@ -134,27 +140,46 @@
 
 
     <section class="cd-section contact ">
-          <div class="cd-content" id="contact-content">
-            <h3>Users</h3><br />
-            <div class="row">
-              <table style="border:1px solid black;background:white;color:grey;margin-left:60px;">
-                <thead>
-                  <th>Name</th>
-                  <th>Username</th>
-                  <th>Created</th>
-                  <th>Last Accessed</th>
-                </thead>
-                <tbody id="userlist">
-                </tbody>
-              </table>
-            </div>
-                
-          </div>        
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae illo veritatis ea deserunt aliquam blanditiis, voluptas optio, voluptate ut accusamus veniam numquam, porro! Cum minima a molestiae, similique voluptate, perferendis vel iusto quam suscipit delectus dolore ducimus possimus illo molestias voluptas labore optio consequuntur sapiente pariatur libero nam temporibus. Laudantium!
-        </p>
+      <div class="cd-content" id="contact-content">
+        <div class="row">
+          <div class="col-md-offset-3 col-md-12">
+            <h1>Users</h1><br />
+            <table class="table table-striped" >
+              <thead>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Created</th>
+                <th>Last Accessed</th>
+                <th>Manage</th>
+              </thead>
+              <tbody id="userlist">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>        
     </section> <!-- .cd-section -->
   </main> <!-- .cd-main -->
+  <!-- EDIT USER MODAL -->
+  <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Delete User</h4>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   <div id="cd-loading-bar" data-scale="1" class="index"></div> <!-- lateral loading bar -->
 <script src="../js/jquery-2.1.4.js"></script>

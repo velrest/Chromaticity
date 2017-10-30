@@ -1,5 +1,18 @@
 /* custom css */
 
+.table {
+    background: white;
+    color: black;
+    border-radius: 4px;
+    padding: 10px;
+    border-collapse: separate !important;
+    font-weight: normal;
+}
+
+.table thead {
+    font-weight: bold;
+}
+
 .colorpicker {
     /*border: 6px solid grey;*/
     border:none;
@@ -445,20 +458,16 @@ Navigation
     padding: 2em 0;
     min-height: 100vh;
 }
-.cd-content p {
+.cd-content {
     width: 90%;
-    max-width: 800px;
     margin: 0 auto 2em;
-    font-size: 1.6rem;
     font-weight: bold;
     line-height: 1.6;
+    font-size: 1.3rem;
 }
 @media only screen and (min-width: 768px) {
     .cd-content {
         padding: 4em 0;
-    }
-    .cd-content p {
-        font-size: 1.6rem;
     }
 }
 /* -------------------------------- 

@@ -17,7 +17,8 @@ var generateUserList = function(object) {
     html += "<tr><td>" + object.devices[i].name + "</td>" + 
         "<td>" + object.devices[i].username + "</td>" +
         "<td>" + object.devices[i].created + "</td>" +
-        "<td>" + object.devices[i].accessed + "</td></tr>"; 
+        "<td>" + object.devices[i].accessed + "</td>" +
+        "<td> <button class='btn btn-default'>E</button><button class='btn btn-danger' data-toggle='modal' data-target='#editUserModal'>D</button></td></tr>"; 
   }
   document.getElementById("userlist").innerHTML = html;
 };
