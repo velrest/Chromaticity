@@ -11,4 +11,4 @@ Currently the application is still in the very early stages of development and n
 
 ## Installation
 * `npm install`
-* `electron main.js`
+* `npm run start`
