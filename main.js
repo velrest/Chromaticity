@@ -16,7 +16,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
- mainWindow = new BrowserWindow({width: 800, height: 600, icon: __dirname + '/icon.png'})
+ mainWindow = new BrowserWindow({width: 1100, height: 600, icon: __dirname + '/icon.png'})
 
   //var Storage = require('node-storage');
   //var store = new Storage('db.json');
@@ -35,7 +35,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
