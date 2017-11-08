@@ -1,6 +1,9 @@
 <p align="center"> 
 <img src="img/screenshots/product_screenshot.png">
 </p>
+<p>
+  <img src="https://api.travis-ci.org/johnfrancisgit/chromaticity.svg?branch=master">
+</p>
 
 ## About 
 Desktop application to control Philips hue lights.
