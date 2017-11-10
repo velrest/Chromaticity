@@ -12,7 +12,6 @@ api = new hue.HueApi(host, username);
 
 var generateUserList = function(object) {
   html = ""
-  listelem = "<li>{0} - {1}</li>"
     for (i=0;i<object.devices.length;i++) {
     html += "<tr><td>" + object.devices[i].name + "</td>" + 
         "<td>" + object.devices[i].username + "</td>" +
@@ -24,12 +23,49 @@ var generateUserList = function(object) {
 };
 
 
+var updateLightList = function(object) {
+  var html = "";
+  var lightcontrols = '<div class="row light_container" style="padding:0px;margin:0px;">' +
+    '  <div class="col-md-3 col-lg-2">' +
+    '  <button class="bubble_wrapper right jscolor {valueElement:\'valueInput\', styleElement: \'styleInput\'} ">'+
+    '    <div id="styleInput" class="light_bubble right">'+
+    '        <img src="../img/products/br30.svg" class="light_icon" />'+
+    '    </div>'+
+    '  </button>'+
+    '  </div>'+
+    '  <div class="col-md-6 col-lg-8">'+
+    '  <div data-slider-color="slider-pink">'+
+    '    <div class="rkmd-slider slider-discrete slider-pink">'+
+    '      <input type="range" min="0" max="100" value="35">'+
+    '    </div>'+
+    '  </div>'+
+    '  </div>'+
+    '  <div class="col-md-3 col-lg-2">'+
+    '    <div class="material-switch pull-right onoffswitch">'+
+    '    <input id="someSwitchOptionInfo" name="someSwitchOption001" type="checkbox"/>'+
+    '    <label for="someSwitchOptionInfo" class="label-info"></label>'+
+    '  </div>'+
+    '  </div>'+
+    '</div> '; 
+  for (i=0;i<object.lights.length;i++) {
+    html += lightcontrols 
+  }
+  document.getElementById("control_light_list").innerHTML = html;
+};
+
+
 var initialize_page = function() {
   console.log("BRIDGE CONFIGURATION")
   console.log(api.fullState(console.log));
   console.log("ALL USERS")
   console.log(api.registeredUsers(console.log));
+
+  // Get all users registered with bridge
   api.registeredUsers().then(generateUserList).done()
+
+  // Get all lights registered with bridge
+  console.log(api.lights(console.log));
+  api.lights().then(updateLightList).done()
   
 };
 
